@@ -12,31 +12,38 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             /*
-             There are two styles of List: plain and grouped.
-             Right now, the app’s List uses the plain style.
-             Use the plain style for lists where all the items in the list are
-             similar to one another, yet independent.
-             Using the grouped style requires the following:
-             1. Using List’s listStyle() to specify that the list should use
-             the grouped style.
-             2. Adding a Section inside the List for each group,
-             which appears as a separate sublist within the list.
-             Sections can contain their own headers.
+             We all got lots to do.
              */
-            //## Test
             List {
-                Section(header: Text("High priority")) {
+                Section(
+                header: Text("High priority")) {
                     Text("Walk the dog")
                     Text("Brush my teeth")
                     Text("Learn iOS development")
+                    Text("Make dinner")
+                    Text("Do laundry")
+                    Text("Pay bills")
+                    Text("Finish homework")
+                    Text("Change internet provider")
+                    Text("Read Raywenderlich.com")
+                    Text("Clean the kitchen")
                 }
-                Section(header: Text("Low priority")) {
+                Section(
+                header: Text("Low priority")) {
                     Text("Soccer practice")
                     Text("Eat ice cream")
-                }
-            }
-            .listStyle(GroupedListStyle())
-            .navigationBarTitle("Checklist")
+                    Text("Take vocal lessons")
+                    Text("Record hit single")
+                    Text("Learn every martial art")
+                    Text("Design costume")
+                    Text("Design crime-fighting vehicle")
+                    Text("Come up with superhero name")
+                    Text("Befriend space raccoon")
+                    Text("Save the world")
+                } }
+                .listStyle(GroupedListStyle())
+                .navigationBarTitle("Checklist")
+            
         }
     }
 }
