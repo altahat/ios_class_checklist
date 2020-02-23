@@ -17,7 +17,9 @@ struct ContentView: View {
                 Text("Learn iOS development")
                 Text("Soccer practice")
                 Text("Eat ice cream")
-            } }
+            }
+            .navigationBarTitle("Checklist")
+        }
     }
 }
 
