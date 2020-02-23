@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     /*
      Let's delete items
+     Edit  to delete & Move items
      
      */
     @State var checklistItems = [
@@ -25,12 +26,13 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(checklistItems, id: \.self) { item in
-                    Text(item) .onTapGesture {
-                        self.checklistItems.remove(at: 0)
-                        self.printChecklistContents() }
-                } }
-                .navigationBarTitle("Checklist") .onAppear() {
-                    self.printChecklistContents() }
+                    Text(item) }
+                    .onDelete(perform: deleteListItem)
+                    .onMove(perform: moveListItem)
+            }
+            .navigationBarItems(trailing: EditButton())
+            .navigationBarTitle("Checklist") .onAppear() {
+                self.printChecklistContents() }
         }
     }
     
@@ -38,5 +40,15 @@ struct ContentView: View {
         for item in checklistItems {
             print(item)
         }
+    }
+    
+    func deleteListItem(whichElement: IndexSet) {
+        checklistItems.remove(atOffsets: whichElement)
+        printChecklistContents()
+    }
+    
+    func moveListItem(whichElement: IndexSet, destination: Int){
+        checklistItems.move(fromOffsets: whichElement, toOffset: destination)
+        printChecklistContents()
     }
 }
