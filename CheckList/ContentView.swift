@@ -12,26 +12,30 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             /*
-             We all got lots to do. UP TO A LIMIT
-             Why  are we gettint an error?
-             You’ve just run into a big limit of working with Views:
-             They’re limited to holding a maximum of ten Views.
+             In a static list, the simplest way to get around this limitation
+             is to use a Group Its sole purpose is to provide a way for you to
+             treat a group of two to ten views as a single view.
+             Now Error gone with 11 views
+             Fix it by using Group
              */
             List {
                 Section(
                 header: Text("High priority")) {
-                    Text("Walk the dog")
-                    Text("Brush my teeth")
-                    Text("Learn iOS development")
-                    Text("Make dinner")
-                    Text("Do laundry")
-                    Text("Pay bills")
-                    Text("Finish homework")
-                    Text("Change internet provider")
-                    Text("Read Raywenderlich.com")
-                    Text("Clean the kitchen")
-                    Text("Wash the car")
-                }
+                    Group {
+                        Text("Walk the dog")
+                        Text("Brush my teeth")
+                        Text("Learn iOS development")
+                        Text("Make dinner")
+                        Text("Do laundry")
+                        Text("Pay bills")
+                    }
+                    Group {
+                        Text("Finish homework")
+                        Text("Change internet provider")
+                        Text("Read RayWenderlich.com")
+                        Text("Clean the kitchen")
+                        Text("Wash the car")
+                    } }
                 Section(
                 header: Text("Low priority")) {
                     Text("Soccer practice")
