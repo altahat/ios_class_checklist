@@ -12,7 +12,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             /*
-             We all got lots to do.
+             We all got lots to do. UP TO A LIMIT
+             Why  are we gettint an error?
+             You’ve just run into a big limit of working with Views:
+             They’re limited to holding a maximum of ten Views.
              */
             List {
                 Section(
@@ -27,6 +30,7 @@ struct ContentView: View {
                     Text("Change internet provider")
                     Text("Read Raywenderlich.com")
                     Text("Clean the kitchen")
+                    Text("Wash the car")
                 }
                 Section(
                 header: Text("Low priority")) {
