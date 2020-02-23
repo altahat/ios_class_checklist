@@ -10,13 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     /*
-     Use Loops.
-     Let's create the list with forEach
-     
-     forEach(collection_of_data, id: object_ID) { current_collection_item in
-         //The block: The code that takes current_collection_item
-         //and truns it into a View
-     }
+     Let's delete items
      
      */
     @State var checklistItems = [
@@ -31,10 +25,15 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(checklistItems, id: \.self) { item in
-                    Text(item) }
-            } .navigationBarTitle("Checklist") .onAppear() {
-                self.printChecklistContents() }
-        } }
+                    Text(item) .onTapGesture {
+                        self.checklistItems.remove(at: 0)
+                        self.printChecklistContents() }
+                } }
+                .navigationBarTitle("Checklist") .onAppear() {
+                    self.printChecklistContents() }
+        }
+    }
+    
     func printChecklistContents() {
         for item in checklistItems {
             print(item)
