@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     /*
      Use Loops.
-     Let's print the list and do something on onAppear
+     Let's create the list with forEach
      */
     @State var checklistItems = [
         "Walk the dog",
@@ -23,10 +23,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                Text("Nothing to see here...yet!") }
-                .navigationBarTitle("Checklist")
-                .onAppear() {
-                    self.printChecklistContents() }
+                ForEach(checklistItems, id: \.self) { item in
+                    Text(item) }
+            } .navigationBarTitle("Checklist") .onAppear() {
+                self.printChecklistContents() }
         } }
     func printChecklistContents() {
         for item in checklistItems {
