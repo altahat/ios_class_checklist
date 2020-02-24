@@ -16,7 +16,8 @@ struct ChecklistItem: Identifiable{
 
 struct ContentView: View {
     /*
-     Clean up...
+     
+     Finding out which item the user tapped
      
      */
     
@@ -41,11 +42,17 @@ struct ContentView: View {
                     }
                     .onTapGesture {
                         print("checklistitem name: \(checklistItem.name)")
-                        
                     }
                 }
                 .onDelete(perform: deleteListItem)
                 .onMove(perform: moveListItem)
+                
+                //UNCOMMENT: checklistItem is not visible outstie the scope of ForEach
+                //You can add the Tap Gesture here, but  you don't have access to
+                //checklistItem
+//                .onTapGesture {
+//                    print("checklistitem name: \(c.name)")
+//                }
             }
             .navigationBarItems(trailing: EditButton())
             .navigationBarTitle("Checklist") .onAppear() {
