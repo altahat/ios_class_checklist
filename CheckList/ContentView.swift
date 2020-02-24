@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ChecklistItem: Identifiable{
+struct ChecklistItem {
     let id = UUID()
     var name: String
     var isChecked: Bool = false
@@ -16,14 +16,7 @@ struct ChecklistItem: Identifiable{
 
 struct ContentView: View {
     /*
-     Let's have two items with the same name: "Walk the dog"
-     Set isChecked to tue for the first one.
-     Why the  second one checked?
-     Answer:
-     the ForEach identifies items using the property name.
-     It always matches the first one itfinds.
-     
-     Fix: add a unique ID.
+     Some refactoring
      
      */
     @State var checklistItems = [
@@ -41,9 +34,8 @@ struct ContentView: View {
                 ForEach(checklistItems, id: \.self.id) { checklistItem in HStack {
                     Text(checklistItem.name)
                     Spacer()
-                    if checklistItem.isChecked {
-                        Text("✅") } else {
-                        Text("◻️")} }
+                    Text(checklistItem.isChecked ? "✅" :"◻️")
+                    }
                 }
                 .onDelete(perform: deleteListItem)
                 .onMove(perform: moveListItem)
