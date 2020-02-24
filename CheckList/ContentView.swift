@@ -17,7 +17,7 @@ struct ChecklistItem: Identifiable{
 struct ContentView: View {
     /*
      
-     Finding out which item the user tapped
+     Checking and unchecking a checklist item
      
      */
     
@@ -42,17 +42,18 @@ struct ContentView: View {
                     }
                     .onTapGesture {
                         print("checklistitem name: \(checklistItem.name)")
+                        if checklistItem.isChecked {
+                            //This will not work because we're dealing with struct
+                            //struct is a value type, not a referance type.
+                            //Any changes you made on a struct 'object' are made
+                            //on  a new copy
+                            checklisbtItem.isChecked = false }
+                        else {
+                            checklistItem.isChecked = true }
                     }
                 }
                 .onDelete(perform: deleteListItem)
                 .onMove(perform: moveListItem)
-                
-                //UNCOMMENT: checklistItem is not visible outstie the scope of ForEach
-                //You can add the Tap Gesture here, but  you don't have access to
-                //checklistItem
-//                .onTapGesture {
-//                    print("checklistitem name: \(c.name)")
-//                }
             }
             .navigationBarItems(trailing: EditButton())
             .navigationBarTitle("Checklist") .onAppear() {
