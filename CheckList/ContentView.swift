@@ -15,7 +15,13 @@ struct ChecklistItem {
 
 struct ContentView: View {
     /*
-     Switch to slide 101
+     The id parameter of ForEach tells SwiftUI how to identify each element
+     in the data provided to it, which in this case is checklistItems.
+     When checklistItems was an array of strings, we told ForEach to simply use
+     the value of the string as a way of distinguishing one element from another,
+     and it worked.
+     Now that checklistItems is an array of ChecklistItem instances,
+     \.self refers to a whole ChecklistItem instance, which is a blob of data.
      
      */
     @State var checklistItems = [
@@ -29,7 +35,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(checklistItems, id: \.self) { checklistItem in HStack {
+                ForEach(checklistItems, id: \.self.name) { checklistItem in HStack {
                     Text(checklistItem.name)
                     Spacer()
                     if checklistItem.isChecked {
