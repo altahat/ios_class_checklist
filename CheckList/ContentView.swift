@@ -8,27 +8,36 @@
 
 import SwiftUI
 
+struct ChecklistItem {
+    var name: String
+    var isChecked: Bool = false
+}
+
 struct ContentView: View {
     /*
-     Let's delete items
-     Edit  to delete & Move items
+     Switch to slide 101
      
      */
     @State var checklistItems = [
-        "Walk the dog",
-        "Brush my teeth",
-        "Learn iOS development",
-        "Soccer practice",
-        "Eat ice cream",
-        "Walk a 100 miles",
+        ChecklistItem(name: "Walk the dog"),
+        ChecklistItem(name: "Brush my teeth"),
+        ChecklistItem(name: "Learn iOS development", isChecked: true),
+        ChecklistItem(name: "Soccer practice"),
+        ChecklistItem(name: "Eat ice cream", isChecked: true),
     ]
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(checklistItems, id: \.self) { item in
-                    Text(item) }
-                    .onDelete(perform: deleteListItem)
-                    .onMove(perform: moveListItem)
+                ForEach(checklistItems, id: \.self) { checklistItem in HStack {
+                    Text(checklistItem.name)
+                    Spacer()
+                    if checklistItem.isChecked {
+                        Text("✅") } else {
+                        Text("◻️")} }
+                }
+                .onDelete(perform: deleteListItem)
+                .onMove(perform: moveListItem)
             }
             .navigationBarItems(trailing: EditButton())
             .navigationBarTitle("Checklist") .onAppear() {
