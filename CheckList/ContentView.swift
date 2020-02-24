@@ -39,6 +39,10 @@ struct ContentView: View {
                         Spacer()
                         Text(checklistItem.isChecked ? "✅" :"◻️")
                     }
+                    .onTapGesture {
+                        print("checklistitem name: \(checklistItem.name)")
+                        
+                    }
                 }
                 .onDelete(perform: deleteListItem)
                 .onMove(perform: moveListItem)
