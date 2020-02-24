@@ -16,17 +16,19 @@ struct ChecklistItem {
 
 struct ContentView: View {
     /*
-     Some refactoring
+     Clean up...
      
      */
-    @State var checklistItems = [
-        ChecklistItem(name: "Walk the dog", isChecked: true),
-        ChecklistItem(name: "Walk the dog"),
-        ChecklistItem(name: "Brush my teeth"),
+    
+      // Properties
+      // ==========
+      @State var checklistItems = [
+        ChecklistItem(name: "Walk the dog", isChecked: false),
+        ChecklistItem(name: "Brush my teeth", isChecked: false),
         ChecklistItem(name: "Learn iOS development", isChecked: true),
-        ChecklistItem(name: "Soccer practice"),
+        ChecklistItem(name: "Soccer practice", isChecked: false),
         ChecklistItem(name: "Eat ice cream", isChecked: true),
-    ]
+      ]
     
     var body: some View {
         NavigationView {
@@ -46,6 +48,7 @@ struct ContentView: View {
         }
     }
     
+    //Methods
     func printChecklistContents() {
         for item in checklistItems {
             print(item)
