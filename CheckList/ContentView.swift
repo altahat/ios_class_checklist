@@ -15,16 +15,13 @@ struct ChecklistItem {
 
 struct ContentView: View {
     /*
-     The id parameter of ForEach tells SwiftUI how to identify each element
-     in the data provided to it, which in this case is checklistItems.
-     When checklistItems was an array of strings, we told ForEach to simply use
-     the value of the string as a way of distinguishing one element from another,
-     and it worked.
-     Now that checklistItems is an array of ChecklistItem instances,
-     \.self refers to a whole ChecklistItem instance, which is a blob of data.
+     Let's have two items with the same name: "Walk the dog"
+     Set isChecked to tue for the first one.
+     Why the  second one checked? 
      
      */
     @State var checklistItems = [
+        ChecklistItem(name: "Walk the dog", isChecked: true),
         ChecklistItem(name: "Walk the dog"),
         ChecklistItem(name: "Brush my teeth"),
         ChecklistItem(name: "Learn iOS development", isChecked: true),
