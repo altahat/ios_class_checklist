@@ -17,9 +17,7 @@ struct ChecklistItem: Identifiable{
 struct ContentView: View {
     /*
      
-     Checking and unchecking a checklist item
-     Real Fix
-     SLIDE#102-104
+     Make the whole line clickable.
      
      */
     
@@ -42,6 +40,15 @@ struct ContentView: View {
                         Spacer()
                         Text(checklistItem.isChecked ? "✅" :"◻️")
                     }
+                    /*
+                     list rows are transparent.  The white color is from the parent
+                     view. The standard for most user
+                     interfaces — not just iOS’ — is that transparent objects
+                     aren’t tappable or clickable. Giving the row a color means
+                     that its pixels are clickable, and giving it the same
+                     color as the background view makes the whole under interface seamless.
+                     */
+                    .background(Color.white) // This makes the entire row clickable
                     .onTapGesture {
                         if let matchingIndex = self.checklistItems.firstIndex(where: {
                             $0.id == checklistItem.id }) {
