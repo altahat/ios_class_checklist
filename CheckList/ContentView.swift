@@ -25,12 +25,15 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(checklistItems, id: \.self) { item in
-                    Text(item) .onTapGesture {
-                        self.checklistItems.remove(at: 0)
-                        self.printChecklistContents() }
-                } }
-                .navigationBarTitle("Checklist") .onAppear() {
-                    self.printChecklistContents() }
+                    Text(item)
+                        .onTapGesture {
+                            self.checklistItems.remove(at: 0)
+                            self.printChecklistContents() }
+                }
+            }
+            .navigationBarTitle("Checklist")
+            .onAppear() {
+                self.printChecklistContents() }
         }
     }
     
