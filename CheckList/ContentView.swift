@@ -17,7 +17,9 @@ struct ChecklistItem: Identifiable{
 struct ContentView: View {
     /*
      
-     Dirty Fix
+     Checking and unchecking a checklist item
+     Real Fix
+     SLIDE#102-104
      
      */
     
@@ -41,8 +43,10 @@ struct ContentView: View {
                         Text(checklistItem.isChecked ? "✅" :"◻️")
                     }
                     .onTapGesture {
-                        print("checklistitem name: \(checklistItem.name)")
-                        self.checklistItems[0].isChecked.toggle()
+                        if let matchingIndex = self.checklistItems.firstIndex(where: {
+                            $0.id == checklistItem.id }) {
+                            self.checklistItems[matchingIndex].isChecked.toggle() }
+                        self.printChecklistContents()
                     }
                 }
                 .onDelete(perform: deleteListItem)
