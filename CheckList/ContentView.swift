@@ -17,7 +17,7 @@ struct ChecklistItem: Identifiable{
 struct ContentView: View {
     /*
      
-     Checking and unchecking a checklist item
+     Dirty Fix
      
      */
     
@@ -42,14 +42,7 @@ struct ContentView: View {
                     }
                     .onTapGesture {
                         print("checklistitem name: \(checklistItem.name)")
-                        if checklistItem.isChecked {
-                            //This will not work because we're dealing with struct
-                            //struct is a value type, not a referance type.
-                            //Any changes you made on a struct 'object' are made
-                            //on  a new copy
-                            checklisbtItem.isChecked = false }
-                        else {
-                            checklistItem.isChecked = true }
+                        self.checklistItems[0].isChecked.toggle()
                     }
                 }
                 .onDelete(perform: deleteListItem)
