@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B87CE474240D7283002F3CE6 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CE473240D7283002F3CE6 /* ChecklistItem.swift */; };
+		B87CE476240D72BE002F3CE6 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CE475240D72BD002F3CE6 /* Checklist.swift */; };
 		B8D966DA2402B9870052F0EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D966D92402B9870052F0EB /* AppDelegate.swift */; };
 		B8D966DC2402B9870052F0EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D966DB2402B9870052F0EB /* SceneDelegate.swift */; };
-		B8D966DE2402B9870052F0EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D966DD2402B9870052F0EB /* ContentView.swift */; };
+		B8D966DE2402B9870052F0EB /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D966DD2402B9870052F0EB /* ChecklistView.swift */; };
 		B8D966E02402B98A0052F0EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D966DF2402B98A0052F0EB /* Assets.xcassets */; };
 		B8D966E32402B98A0052F0EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8D966E22402B98A0052F0EB /* Preview Assets.xcassets */; };
 		B8D966E62402B98A0052F0EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D966E42402B98A0052F0EB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B87CE473240D7283002F3CE6 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		B87CE475240D72BD002F3CE6 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		B8D966D62402B9870052F0EB /* CheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D966D92402B9870052F0EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8D966DB2402B9870052F0EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B8D966DD2402B9870052F0EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B8D966DD2402B9870052F0EB /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		B8D966DF2402B98A0052F0EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8D966E22402B98A0052F0EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8D966E52402B98A0052F0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,11 +62,13 @@
 			children = (
 				B8D966D92402B9870052F0EB /* AppDelegate.swift */,
 				B8D966DB2402B9870052F0EB /* SceneDelegate.swift */,
-				B8D966DD2402B9870052F0EB /* ContentView.swift */,
+				B8D966DD2402B9870052F0EB /* ChecklistView.swift */,
 				B8D966DF2402B98A0052F0EB /* Assets.xcassets */,
 				B8D966E42402B98A0052F0EB /* LaunchScreen.storyboard */,
 				B8D966E72402B98A0052F0EB /* Info.plist */,
 				B8D966E12402B98A0052F0EB /* Preview Content */,
+				B87CE473240D7283002F3CE6 /* ChecklistItem.swift */,
+				B87CE475240D72BD002F3CE6 /* Checklist.swift */,
 			);
 			path = CheckList;
 			sourceTree = "<group>";
@@ -146,9 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B87CE476240D72BE002F3CE6 /* Checklist.swift in Sources */,
 				B8D966DA2402B9870052F0EB /* AppDelegate.swift in Sources */,
 				B8D966DC2402B9870052F0EB /* SceneDelegate.swift in Sources */,
-				B8D966DE2402B9870052F0EB /* ContentView.swift in Sources */,
+				B8D966DE2402B9870052F0EB /* ChecklistView.swift in Sources */,
+				B87CE474240D7283002F3CE6 /* ChecklistItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
