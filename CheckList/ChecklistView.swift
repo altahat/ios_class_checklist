@@ -12,7 +12,8 @@ import SwiftUI
 
 struct ChecklistView: View {
     /*
-     Refactored to  use MVVM.
+     Refactor...
+     Switch to #105
      */
     
     // Properties
@@ -22,7 +23,7 @@ struct ChecklistView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(checklist.checklistItems) { checklistItem in
+                ForEach(checklist.items) { checklistItem in
                     HStack {
                         Text(checklistItem.name)
                         Spacer()
@@ -30,9 +31,9 @@ struct ChecklistView: View {
                     }
                         .background(Color.white) // This makes the entire row clickable
                         .onTapGesture {
-                            if let matchingIndex = self.checklist.checklistItems.firstIndex(where: {
+                            if let matchingIndex = self.checklist.items.firstIndex(where: {
                                 $0.id == checklistItem.id }) {
-                                self.checklist.checklistItems[matchingIndex].isChecked.toggle() }
+                                self.checklist.items[matchingIndex].isChecked.toggle() }
                             
                     }
                 }
