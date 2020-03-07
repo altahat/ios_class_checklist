@@ -52,16 +52,19 @@ struct ChecklistView: View {
                         Text("Add item")
                     }
                 }
-                .alert(isPresented: self.$newChecklistItemViewIsVisible) { Alert(title: Text("I am clicked"),
-                                                                                 message: Text("I  am the message"), dismissButton: .default(Text("Awesome!")) {
-                                                                                    print("you just dismissed me")
-                    } )
-                }
+//                .alert(isPresented: self.$newChecklistItemViewIsVisible) { Alert(title: Text("I am clicked"),
+//                                                                                 message: Text("I  am the message"), dismissButton: .default(Text("Awesome!")) {
+//                                                                                    print("you just dismissed me")
+//                    } )
+//                }
                 
                 ,
                 trailing: EditButton()
             )
                 .navigationBarTitle("Checklist")
+        }
+         .sheet(isPresented: $newChecklistItemViewIsVisible) {
+          Text("New item screen coming soon!")
         }
     }
     
