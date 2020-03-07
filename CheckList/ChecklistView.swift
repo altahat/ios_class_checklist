@@ -64,7 +64,7 @@ struct ChecklistView: View {
                 .navigationBarTitle("Checklist")
         }
          .sheet(isPresented: $newChecklistItemViewIsVisible) {
-          Text("New item screen coming soon!")
+          NewChecklistItemView()
         }
     }
     
