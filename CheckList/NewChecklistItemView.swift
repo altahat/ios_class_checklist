@@ -9,11 +9,13 @@
 import SwiftUI
 
 struct NewChecklistItemView: View {
+    @State var newItemName = ""
+    
     var body: some View {
         VStack {
             Text("Add new item")
-            List {
-                Text("Enter item name")
+            Form {
+                TextField("Enter new item name here", text: $newItemName)
                 Button(action: {
                 }) {
                     HStack {
