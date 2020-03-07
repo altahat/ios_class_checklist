@@ -61,7 +61,7 @@ struct ChecklistView: View {
                 ,
                 trailing: EditButton()
             )
-                .navigationBarTitle("Checklist")
+                .navigationBarTitle("Checklist", displayMode: .inline)
         }
          .sheet(isPresented: $newChecklistItemViewIsVisible) {
           NewChecklistItemView(checklist: self.checklist)
