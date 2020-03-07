@@ -51,7 +51,14 @@ struct ChecklistView: View {
                         Image(systemName: "plus.circle.fill")
                         Text("Add item")
                     }
-                },
+                }
+                .alert(isPresented: self.$newChecklistItemViewIsVisible) { Alert(title: Text("I am clicked"),
+                                                                                 message: Text("I  am the message"), dismissButton: .default(Text("Awesome!")) {
+                                                                                    print("you just dismissed me")
+                    } )
+                }
+                
+                ,
                 trailing: EditButton()
             )
                 .navigationBarTitle("Checklist")
