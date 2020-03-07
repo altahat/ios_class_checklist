@@ -34,7 +34,9 @@ struct NewChecklistItemView: View {
                     Image(systemName: "plus.circle.fill")
                     Text("Add new item")
                     }
-                } }
+                }
+                .disabled(newItemName.count == 0)
+            }
             Text("Swipe down to cancel.") }
     }
 }
