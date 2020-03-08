@@ -25,18 +25,7 @@ struct ChecklistView: View {
         NavigationView {
             List {
                 ForEach(checklist.items) { checklistItem in
-                    HStack {
-                        Text(checklistItem.name)
-                        Spacer()
-                        Text(checklistItem.isChecked ? "✅" :"◻️")
-                    }
-                        .background(Color.white) // This makes the entire row clickable
-                        .onTapGesture {
-                            if let matchingIndex = self.checklist.items.firstIndex(where: {
-                                $0.id == checklistItem.id }) {
-                                self.checklist.items[matchingIndex].isChecked.toggle() }
-                            
-                    }
+                    RowView(checklistItem: checklistItem)
                 }
                 .onDelete(perform: checklist.deleteListItem)
                 .onMove(perform: checklist.moveListItem)
@@ -58,8 +47,8 @@ struct ChecklistView: View {
             )
                 .navigationBarTitle("Checklist", displayMode: .inline)
         }
-         .sheet(isPresented: $newChecklistItemViewIsVisible) {
-          NewChecklistItemView(checklist: self.checklist)
+        .sheet(isPresented: $newChecklistItemViewIsVisible) {
+            NewChecklistItemView(checklist: self.checklist)
         }
     }
     
