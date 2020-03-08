@@ -11,7 +11,7 @@ import SwiftUI
 struct RowView: View {
     @State var checklistItem: ChecklistItem
     var body: some View {        
-        NavigationLink(destination: EditChecklistItemView()) {
+        NavigationLink(destination: EditChecklistItemView(checklistItem: checklistItem)) {
             HStack {
                 Text(checklistItem.name)
                 Spacer()
