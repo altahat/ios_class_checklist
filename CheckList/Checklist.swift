@@ -56,6 +56,13 @@ class Checklist: ObservableObject {
         printChecklistContents()
     }
     
+    /*
+     URL as a “web address”, but it’s really just a path for a given directory or file,
+     which can be either online or on the local system.
+     iOS uses URLs to refer to files in its file system.
+     When a URL begins with http:// or https://, it refers to a directory or
+     file on the web. When it refers to a local file, a URL will begin with file://.
+     */
     func documentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory,
                                              in: .userDomainMask)
