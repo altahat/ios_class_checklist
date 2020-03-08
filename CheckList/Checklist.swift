@@ -22,9 +22,9 @@ import Foundation
  2. Deleting an item.
  3. Moving an item.
  4. Toggling an item between “checked” and “unchecked”.
-
- */
  
+ */
+
 class Checklist: ObservableObject {
     //@Published means making changes to that property notifies any observing objects
     @Published var items = [
@@ -34,6 +34,11 @@ class Checklist: ObservableObject {
         ChecklistItem(name: "Soccer practice", isChecked: false),
         ChecklistItem(name: "Eat ice cream", isChecked: true),
     ]
+    
+    init() {
+        print("Documents directory is: \(documentsDirectory())")
+        print("Data file path is: \(dataFilePath())")
+    }
     
     func printChecklistContents() {
         for item in items {
@@ -50,4 +55,12 @@ class Checklist: ObservableObject {
         items.move(fromOffsets: whichElement, toOffset: destination)
         printChecklistContents()
     }
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory,
+                                             in: .userDomainMask)
+        return paths[0]
+    }
+    func dataFilePath() -> URL {
+        return  documentsDirectory().appendingPathComponent("Checklist.plist") }
 }
