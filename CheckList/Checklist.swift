@@ -49,11 +49,13 @@ class Checklist: ObservableObject {
     func deleteListItem(whichElement: IndexSet) {
         items.remove(atOffsets: whichElement)
         printChecklistContents()
+        saveListItems()
     }
     
     func moveListItem(whichElement: IndexSet, destination: Int){
         items.move(fromOffsets: whichElement, toOffset: destination)
         printChecklistContents()
+        saveListItems()
     }
     
     /*
@@ -69,5 +71,25 @@ class Checklist: ObservableObject {
         return paths[0]
     }
     func dataFilePath() -> URL {
-        return  documentsDirectory().appendingPathComponent("Checklist.plist") }
+        return  documentsDirectory().appendingPathComponent("Checklist.plist")
+        
+    }
+    
+    func saveListItems() {
+        // 1
+        let encoder = PropertyListEncoder()
+        // 2
+        do {
+            // 3
+            let data = try encoder.encode(items)
+            // 4
+            try data.write(to: dataFilePath(),
+                           options: Data.WritingOptions.atomic)
+            // 5
+        } catch { // 6
+            
+            print("Error encoding item array: \(error.localizedDescription)")
+        }
+        
+    }
 }
