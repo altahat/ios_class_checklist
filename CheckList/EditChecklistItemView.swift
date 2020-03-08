@@ -11,7 +11,20 @@ import SwiftUI
 struct EditChecklistItemView: View {
     // Properties
     // ==========
-    @State var checklistItem: ChecklistItem
+    /*
+     @Binding properties
+     a way to pass a connection to a checklist item rather than a copy.
+     As a @State property, checklistItem was a property that belonged to EditChecklistItemView.
+     With @State a copy of ChecklistItem is passed to EditCheclistItemView by RowView.
+     Any changes made to the checklist item in EditChecklistItemView aren’t reflected
+     in the matching checklist item in RowView
+     
+     As a @Binding property, checklistItem is a connection to another object’s property.
+     Now, when a RowView instance passes a checklist item to an EditChecklistItemView
+     via the checklistItem item property, any changes made to the checklist item
+     in EditChecklistItemView will be reflected in the matching checklist item in RowView.
+     */
+    @Binding var checklistItem: ChecklistItem
     // User interface content and layout
     var body: some View {
         Form {
@@ -23,6 +36,10 @@ struct EditChecklistItemView: View {
 
 struct EditChecklistItemView_Previews: PreviewProvider {
     static var previews: some View {
-        EditChecklistItemView(checklistItem: ChecklistItem(name: "Sample item"))
+        /*
+         the .constant function creates a binding to a checklist item,
+         which is the kind of value that the checklistItem property expects.
+         */
+        EditChecklistItemView(checklistItem: .constant(ChecklistItem(name: "Sample item")))
     }
 }
