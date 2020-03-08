@@ -10,11 +10,13 @@ import SwiftUI
 
 struct RowView: View {
     @State var checklistItem: ChecklistItem
-    var body: some View {
-        HStack {
-            Text(checklistItem.name)
-            Spacer()
-            Text(checklistItem.isChecked ? "✅" : "◻️") }
+    var body: some View {        
+        NavigationLink(destination: EditChecklistItemView()) {
+            HStack {
+                Text(checklistItem.name)
+                Spacer()
+                Text(checklistItem.isChecked ? "✅" : "◻️") }
+        }
     }
 }
 
