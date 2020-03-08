@@ -27,17 +27,12 @@ import Foundation
 
 class Checklist: ObservableObject {
     //@Published means making changes to that property notifies any observing objects
-    @Published var items = [
-        ChecklistItem(name: "Walk the dog", isChecked: false),
-        ChecklistItem(name: "Brush my teeth", isChecked: false),
-        ChecklistItem(name: "Learn iOS development", isChecked: true),
-        ChecklistItem(name: "Soccer practice", isChecked: false),
-        ChecklistItem(name: "Eat ice cream", isChecked: true),
-    ]
+    @Published var items: [ChecklistItem] = []
     
     init() {
         print("Documents directory is: \(documentsDirectory())")
         print("Data file path is: \(dataFilePath())")
+        loadListItems()
     }
     
     func printChecklistContents() {
@@ -92,4 +87,22 @@ class Checklist: ObservableObject {
         }
         
     }
+    
+    func loadListItems() {
+        // 1
+        let path = dataFilePath()
+        // 2
+        if let data = try? Data(contentsOf: path) {
+            // 3
+            let decoder = PropertyListDecoder()
+            do {
+                // 4
+                items = try decoder.decode([ChecklistItem].self,
+                                           from: data)
+                // 5
+            } catch {
+                print("Error decoding item array: \(error.localizedDescription)")
+            } }
+    }
+    
 }
